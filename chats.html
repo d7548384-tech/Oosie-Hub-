@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oosie Hub - Chats</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f8f8f8;
+      color: #333;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #b30000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 25px;
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+    header svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      cursor: pointer;
+    }
+
+    .chat-list {
+      padding: 20px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      padding: 15px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .chat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .chat-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #b30000;
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      margin-right: 15px;
+    }
+
+    .chat-info h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #b30000;
+    }
+
+    .chat-info p {
+      margin: 3px 0 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .chat-window {
+      display: none;
+      flex-direction: column;
+      padding: 15px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .message {
+      background-color: white;
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      max-width: 70%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .sent {
+      background-color: #b30000;
+      color: white;
+      margin-left: auto;
+    }
+
+    .received {
+      background-color: #e9e9e9;
+      color: #333;
+      margin-right: auto;
+    }
+
+    footer {
+      background-color: #b30000;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      color: white;
+      flex-shrink: 0;
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      font-size: 0.85em;
+    }
+
+    footer svg {
+      fill: white;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 3px;
+      opacity: 0.7;
+    }
+
+    footer a.active svg {
+      opacity: 1;
+    }
+
+    footer a.active {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Oosie Hub</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24">
+      <path fill="white" d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/>
+    </svg>
+  </header>
+
+  <section class="chat-list">
+    <a href="#buhle" class="chat-card">
+      <div class="chat-avatar">B</div>
+      <div class="chat-info">
+        <h3>Buhle</h3>
+        <p>Hey, did you finish the project?</p>
+      </div>
+    </a>
+
+    <a href="#ca-group" class="chat-card">
+      <div class="chat-avatar">C</div>
+      <div class="chat-info">
+        <h3>CA Group</h3>
+        <p>Meeting today at 3 PM</p>
+      </div>
+    </a>
+
+    <a href="#mr-thomas" class="chat-card">
+      <div class="chat-avatar">T</div>
+      <div class="chat-info">
+        <h3>Mr. Thomas</h3>
+        <p>Submit your homework online.</p>
+      </div>
+    </a>
+  </section>
+
+  <section id="buhle" class="chat-window">
+    <div class="message received">Hey! How’s your assignment going?</div>
+    <div class="message sent">Almost done! Just fixing the last part 😅</div>
+  </section>
+
+  <section id="ca-group" class="chat-window">
+    <div class="message received">Don’t forget the meeting today.</div>
+    <div class="message sent">Got it! I’ll be there.</div>
+  </section>
+
+  <section id="mr-thomas" class="chat-window">
+    <div class="message received">Please upload your homework by 6 PM.</div>
+    <div class="message sent">Sure, I’ll do that right away.</div>
+  </section>
+
+  <footer>
+    <a href="chats.html" class="active">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <path d="M232 96a16 16 0 0 0-16-16h-32V48a16 16 0 0 0-16-16H40a16 16 0 0 0-16 16v128a8 8 0 0 0 13 6.22L72 154v30a16 16 0 0 0 16 16h93.59L219 230.22a8 8 0 0 0 5 1.78a8 8 0 0 0 8-8Z"/>
+      </svg>
+      <span>Chats</span>
+    </a>
+    <a href="homeworks.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m0 0h10M8 7h8"/>
+      </svg>
+      <span>Homeworks</span>
+    </a>
+    <a href="announcements.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M21 3a1 1 0 0 0-1.14.43L16.36 9H8V5H5v14h3v-4h8.36l3.5 5.57A1 1 0 0 0 21 20z"/>
+      </svg>
+      <span>Announcements</span>
+    </a>
+    <a href="schedule.html">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm2-8h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V1h2v2h6V1h2z"/>
+      </svg>
+      <span>Schedule</span>
+    </a>
+  </footer>
+
+</body>
+</html>
